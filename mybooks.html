@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Books - EPUB Reader</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">My EPUB Reader</a>
+    <div class="nav-buttons">
+      <button onclick="location.href='login.html'">Logout</button>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h2>Welcome to Your Library</h2>
+      <p>Here are your uploaded EPUBs</p>
+    </div>
+
+    <section class="book-list">
+      <!-- Sample Book -->
+      <div class="book-card">
+        <div class="book-info">
+          <h3>Sample Book Title</h3>
+          <p>Author: Jane Doe</p>
+          <p>Estimated Read Time: 4 hrs</p>
+        </div>
+        <div class="book-actions">
+          <button onclick="alert('Book Info Coming Soon')">Info</button>
+          <button onclick="location.href='reader.html'">Read</button>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-info">
+          <h3>Another EPUB Book</h3>
+          <p>Author: John Smith</p>
+          <p>Estimated Read Time: 6 hrs</p>
+        </div>
+        <div class="book-actions">
+          <button onclick="alert('Book Info Coming Soon')">Info</button>
+          <button onclick="location.href='reader.html'">Read</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 My EPUB Reader
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html>
