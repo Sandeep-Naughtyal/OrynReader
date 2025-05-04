@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oryn Reader</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">📚 Oryn Reader</a>
+    <div class="nav-buttons">
+      <button onclick="location.href='index.html'">🏠</button>
+      <button id="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main class="reader-wrapper">
+    <button id="menu-toggle" class="menu-btn">☰</button>
+    <div id="sidebar" class="sidebar">
+      <h3>Chapters</h3>
+      <ul></ul>
+    </div>
+
+    <section class="reader-area" id="reader-area">
+      <div class="reader-controls">
+        <div class="font-buttons">
+          <button id="decrease-font">A−</button>
+          <button id="increase-font">A+</button>
+        </div>
+        <div class="reading-theme">
+          <label>Theme:</label>
+          <select id="reading-theme-select">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="sepia">Sepia</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="epub-content" id="epub-content">
+        <div class="file-upload">
+          <label for="upload" class="upload-btn">📁 Choose EPUB</label>
+          <input type="file" id="upload" accept=".epub" />
+          <span id="file-name">No file chosen</span>
+        </div>
+        
+      
+        <div id="viewer" style="width: 100%; height: 80vh; margin-top: 1em;"></div>
+        <div class="controls">
+          <button id="prev">Previous</button>
+          <button id="next">Next</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 OrynReader
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://unpkg.com/epubjs/dist/epub.min.js"></script>
+  <script src="js/reader.js"></script>
+  <script>
+  const toggleBtn = document.getElementById('theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    const body = document.body;
+    const isDark = body.classList.toggle('dark');
+    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    if (rendition) {
+    rendition.themes.select(isDark ? 'dark' : 'light');
+    document.getElementById('reading-theme-select').value = isDark ? 'dark' : 'light';}
+  });
+
+    const menuBtn = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('visible');
+    });
+  </script> 
+  <script>
+    document.getElementById('upload').addEventListener('change', function () {
+      const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+      document.getElementById('file-name').textContent = fileName;
+    });
+  </script> 
+</body>
+</html>

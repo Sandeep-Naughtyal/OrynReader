@@ -16,7 +16,7 @@
   </header>
 
   <main>
-    <div class="hero">
+    <div class="hero center-text">
       <h2>Welcome to Your Library</h2>
       <p>Here are your uploaded EPUBs</p>
     </div>
@@ -24,34 +24,38 @@
     <section class="book-list">
       <!-- Sample Book -->
       <div class="book-card">
-        <div class="book-info">
-          <h3>Sample Book Title</h3>
-          <p>Author: Jane Doe</p>
-          <p>Estimated Read Time: 4 hrs</p>
+        <div class="book-cover">
+          <img src="assets/images/1.jpg" alt="Book Cover" />
+          <div class="three-dots" onclick="alert('Book Info Coming Soon')">⋮</div>
         </div>
-        <div class="book-actions">
-          <button onclick="alert('Book Info Coming Soon')">Info</button>
-          <button onclick="location.href='reader.html'">Read</button>
+        <div class="book-meta">
+          <h3>Sample Book Title</h3>
+          <p>Author ka Naam</p>
         </div>
       </div>
 
       <div class="book-card">
-        <div class="book-info">
-          <h3>Another EPUB Book</h3>
-          <p>Author: John Smith</p>
-          <p>Estimated Read Time: 6 hrs</p>
+        <div class="book-cover">
+          <img src="images/2.jpg" alt="Book Cover" />
+          <div class="three-dots" onclick="alert('Book Info Coming Soon')">⋮</div>
         </div>
-        <div class="book-actions">
-          <button onclick="alert('Book Info Coming Soon')">Info</button>
-          <button onclick="location.href='reader.html'">Read</button>
+        <div class="book-meta">
+          <h3>Another EPUB Book</h3>
+          <p>Another author ka naam</p>
         </div>
       </div>
+
+      <input type="file" id="epub-upload" accept=".epub" />
+      <div id="book-list"></div>
+
     </section>
   </main>
 
   <footer>
     &copy; 2025 My EPUB Reader
   </footer>
+
+  
 
   <script>
     const toggleBtn = document.getElementById('theme-toggle');
@@ -60,5 +64,9 @@
       toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
   </script>
+
+<script src="https://unpkg.com/epubjs/dist/epub.min.js"></script>
+<script src="js/mybooks.js"></script>
+
 </body>
 </html>
